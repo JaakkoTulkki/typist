@@ -1,12 +1,16 @@
 import React from 'react';
 import Well from 'react-bootstrap/lib/Well';
 
-const TextWell = () => {
+const TextWell = ({text}) => {
   return (
     <div>
-      <Well>Hello there, this the text</Well>
+      <Well>{text}</Well>
     </div>
   );
+};
+
+TextWell.propTypes = {
+  text: React.PropTypes.string.isRequired,
 };
 
 export default TextWell;

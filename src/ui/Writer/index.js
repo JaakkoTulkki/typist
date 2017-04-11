@@ -1,2 +1,2 @@
-import WriterView from './WriterView.presenter';
+import WriterView from './WriterView.container';
 export default WriterView;

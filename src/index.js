@@ -2,42 +2,47 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import createHistory from 'history/createBrowserHistory'
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import { Router, Route } from 'react-router'
+import { routerReducer, routerMiddleware } from 'react-router-redux'
+import createBrowserHistory from 'history/createBrowserHistory'
+
 import Header from './layout/Header';
 import WriterView from './ui/Writer';
-import { Route }from 'react-router-dom'
 import './index.css';
+
 import reducers from './reducer';
+import { texts } from './reducer';
+import initialState from './initialState';
 
 
-const HomePage = () => {
-  return (
-    <WriterView />
-  );
-};
-
-const history = createHistory();
+const history = createBrowserHistory();
 const middleware = routerMiddleware(history);
 const store = createStore(
   combineReducers({
-    ...reducers,
-    router: routerReducer
+    texts,
+    routing: routerReducer
   }),
+  initialState,
   applyMiddleware(middleware)
-)
-
-const Routing = () => (
-  <ConnectedRouter>
-    <div>
-      <Header />
-      <Route exact path="/" component={HomePage}/>
-    </div>
-  </ConnectedRouter>
 );
 
+const anotherView = ()=>(
+  <div>chickens</div>
+);
+
+const Routing = () => (
+    <Router history={history}>
+      <div>
+        <Header />
+        <Route exact path="/" component={WriterView}/>
+        <Route path="/chicken" component={anotherView}/>
+      </div>
+    </Router>
+);
+
+
 // Now you can dispatch navigation actions from anywhere!
-// store.dispatch(push('/foo'))
+// store.dispatch(push('/foo')) // from react-router-redux
 
 ReactDOM.render(
   <Provider store={store}>
