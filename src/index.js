@@ -10,8 +10,8 @@ import Header from './layout/Header';
 import WriterView from './ui/Writer';
 import './index.css';
 
-import reducers from './reducer';
-import { texts } from './reducer';
+import textReducer from './reducers/text.reducer';
+import typingReducer from './reducers/typing.reducer';
 import initialState from './initialState';
 
 
@@ -19,7 +19,8 @@ const history = createBrowserHistory();
 const middleware = routerMiddleware(history);
 const store = createStore(
   combineReducers({
-    texts,
+    texts: textReducer,
+    typing: typingReducer,
     routing: routerReducer
   }),
   initialState,
