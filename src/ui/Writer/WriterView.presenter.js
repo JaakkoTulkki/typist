@@ -14,6 +14,7 @@ class WriterView extends React.Component {
           <Row>
             <Link to="/chicken" >link to chicken</Link>
           </Row>
+          <button onClick={this.props.action}>chicken</button>
         </Grid>
       </div>
     );

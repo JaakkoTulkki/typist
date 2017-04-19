@@ -5,6 +5,9 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Router, Route } from 'react-router'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
+import { createLogger } from 'redux-logger'
+import logger from 'redux-logger';
+
 
 import Header from './layout/Header';
 import WriterView from './ui/Writer';
@@ -16,7 +19,8 @@ import initialState from './initialState';
 
 
 const history = createBrowserHistory();
-const middleware = routerMiddleware(history);
+// const logger = createLogger({});
+const middleware = [routerMiddleware(history), logger];
 const store = createStore(
   combineReducers({
     texts: textReducer,
@@ -24,7 +28,7 @@ const store = createStore(
     routing: routerReducer
   }),
   initialState,
-  applyMiddleware(middleware)
+  applyMiddleware(...middleware),
 );
 
 const anotherView = ()=>(
