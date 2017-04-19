@@ -6,3 +6,4 @@ export const selectTextById = (state, id) => pathOr(null, [id], selectTexts(stat
 
 export const selectTypist = (state) => pathOr(null, ['typing'], state);
 export const selectActiveTextId = (state) => pathOr(null, ['activeTextId'], selectTypist(state));
+export const selectActiveCharacterPosition = (state) => pathOr(null, ['position'], selectTypist(state));

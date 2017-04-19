@@ -5,11 +5,17 @@ import { Link } from 'react-router-dom';
 
 class WriterView extends React.Component {
   render() {
+    const {
+      start,
+      underlinedWord,
+      rest,
+      increasePosition
+    } = this.props;
     return (
       <div>
         <Grid className="pt-1">
           <Row>
-            <TextWell text={this.props.text}/>
+            <TextWell increasePosition={increasePosition} start={start} underlinedWord={underlinedWord} rest={rest} />
           </Row>
           <Row>
             <Link to="/chicken" >link to chicken</Link>
@@ -22,7 +28,10 @@ class WriterView extends React.Component {
 };
 
 WriterView.propTypes = {
-  text: React.PropTypes.string,
+  start: React.PropTypes.string,
+  underlinedWord: React.PropTypes.string,
+  rest: React.PropTypes.string,
+  increasePosition: React.PropTypes.func,
 };
 
 export default WriterView;
