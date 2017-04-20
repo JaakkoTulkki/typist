@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import WriterView from './WriterView.presenter';
-import { SET_ACTIVE_TEXT } from '../../reducers/typing.reducer';
 import { selectActiveTextId, selectTextById } from '../../reducers/selectors';
 import {selectActiveCharacterPosition} from "../../reducers/selectors";
 import {INCREASE_POSITION} from "../../reducers/typing.reducer";

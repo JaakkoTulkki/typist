@@ -5,7 +5,6 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Router, Route } from 'react-router'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import createBrowserHistory from 'history/createBrowserHistory'
-import { createLogger } from 'redux-logger'
 import logger from 'redux-logger';
 
 

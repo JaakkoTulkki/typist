@@ -7,3 +7,32 @@ body {
 .pt-1 {
     padding: 1rem;
 }
+
+.underlined {
+    text-decoration: underline;
+}
+mark {
+    background: darkgrey;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding: 0.1em;
+}
+
+.writing-area {
+  font-size: 1.4em;
+}
+
+.button {
+    background-color: #607;
+    width: 300px;
+    height: 75px;
+    border-radius: 1em;
+}
+.button > p {
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translate(25%, -50%);
+    font-size: 2em;
+    color: white;
+}
